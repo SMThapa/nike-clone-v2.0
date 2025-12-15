@@ -1,0 +1,101 @@
+nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 12;
+    height: fit-content;
+
+    .nav-top {
+        height: 35px;
+        padding: 0 25px;
+        background: var(--secondary);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            height: 22px;
+            width: 22px;
+        }
+
+        .action-buttons {
+            font-size: .78rem;
+            font-weight: 500;
+
+            a {
+                opacity: .9;
+                padding: 0 12px;
+            }
+
+            span {
+                display: inline-block;
+                height: 15px;
+                width: 1.3px;
+                background: black;
+                vertical-align: sub;
+                opacity: .6;
+            }
+
+            margin-right: 30px;
+        }
+    }
+
+    .navigation {
+        height: var(--header-height);
+        padding: 0 20px;
+
+        display: grid;
+        grid-template-columns: 350px 1fr 350px;
+        align-items: center;
+
+        .logo {
+            height: 100%;
+            width: 50px;
+            display: flex;
+            align-items: center;
+
+            img {
+                object-fit: contain;
+            }
+        }
+
+        .menu-list {
+            justify-self: center;
+
+            a {
+                padding: 0 10px;
+                font-size: .96rem;
+                font-weight: 500;
+            }
+        }
+
+        .action-section {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 18px;
+            padding-right: 15px;
+
+            svg {
+                opacity: .8;
+            }
+
+            .search {
+                display: flex;
+                background: var(--secondary);
+                padding: 6px 18px;
+                border-radius: 25px;
+                margin-right: 8px;
+
+                input {
+                    border: none;
+                    background: transparent;
+
+                    outline: none;
+                    font-size: .9rem;
+                }
+            }
+        }
+    }
+}
