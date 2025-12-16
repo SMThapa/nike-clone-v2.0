@@ -14,8 +14,6 @@ export const SpecialProducts = () => {
     const [activeSlide, setActiveSlide] = useState(0);
     const swiperRef2 = useRef(null);
     const [mute, setMute] = useState(true)
-
-    console.log(products[0])
     return (
         <div className="special-products container">
             <div className="section-title">hot items</div>

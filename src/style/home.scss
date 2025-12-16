@@ -193,6 +193,10 @@
 
                 .image-section {
                     width: 75%;
+
+                    img {
+                        object-position: 50% 85%;
+                    }
                 }
 
                 .text-content {
@@ -323,6 +327,29 @@
                     height: 30px;
                     width: 30px;
                 }
+            }
+        }
+    }
+
+    .home-shop {
+        .section-contents {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+
+            .title {
+                font-family: var(--bold);
+                font-size: 1.6rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+
+            .section-card {
+                img {
+                    height: 500px;
+                    object-fit: cover;
+                }
+
             }
         }
     }

@@ -1,12 +1,8 @@
-import { span } from "framer-motion/client";
 import { Link } from "react-router-dom";
-
-Link
 
 export const ProductCard = (prod) => {
 
     const product = prod.prod
-    console.log(product)
 
     return (
         <Link to={`/product/${product.id}`}>
