@@ -23,7 +23,7 @@ export const SpecialProducts = () => {
                 loop={true}
                 onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
                 slidesPerView={4}
-                spaceBetween={25}
+                spaceBetween={20}
                 className="mySwiper"
             >
                 {

@@ -335,7 +335,7 @@
         .section-contents {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 20px;
 
             .title {
                 font-family: var(--bold);
@@ -348,6 +348,7 @@
                 img {
                     height: 500px;
                     object-fit: cover;
+                    border-radius: 12px;
                 }
 
             }

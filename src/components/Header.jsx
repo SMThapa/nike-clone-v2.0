@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 import NavTop from './NavTop';
+import { title } from 'framer-motion/client';
 export const Header = () => {
     return (
         <nav>
@@ -12,10 +13,10 @@ export const Header = () => {
                     </div>
                 </Link>
                 <div className="menu-list">
-                    <NavLink to={'/'}>New & featured</NavLink>
-                    <NavLink to={'/'}>Men</NavLink>
-                    <NavLink to={'/'}>Female</NavLink>
-                    <NavLink to={'/'}>Sale</NavLink>
+                    <NavLink to={'/products'} state={{ title: "New & Featured" }}>New & Featured</NavLink>
+                    <NavLink to={'/products'} state={{ title: "Men" }}>Men</NavLink>
+                    <NavLink to={'/products'} state={{ title: "Women" }}>Women</NavLink>
+                    <NavLink to={'/products'} state={{ title: "Sale" }}>Sale</NavLink>
                 </div>
                 <div className="action-section">
                     <div className="search">

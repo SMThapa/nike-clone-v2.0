@@ -27,9 +27,9 @@ const NavTop = () => {
                 <span></span>
                 <Link to="/">Help</Link>
                 <span></span>
-                <Link to="/">Join Us</Link>
+                <Link to="/register">Join Us</Link>
                 <span></span>
-                <Link to="/">Sign In</Link>
+                <Link to="/login">Sign In</Link>
             </div>
         </div>
     );

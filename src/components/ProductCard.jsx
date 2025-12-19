@@ -1,31 +1,53 @@
 import { Link } from "react-router-dom";
-
+import { Heart } from "lucide-react";
+import { useState } from "react";
 export const ProductCard = (prod) => {
 
-    const product = prod.prod
+    const product = prod.prod;
+    const [inList, setInList] = useState(false)
 
     return (
         <Link to={`/product/${product.id}`}>
             <div className='productCard'>
                 <div className="product-image">
+                    <div className={`wish-icon ${inList ? 'wish-true' : ''}`} onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setInList(!inList)
+                    }}>
+                        <Heart />
+                    </div>
                     <img className='first-img' src={product.thumbnail[0]} alt={product.name} />
                     <img className='second-img' src={product.thumbnail[3]} alt={product.name} />
                 </div>
-                <div className="product-title">{product.name}</div>
-                <div className="product-genre">{product.genre}</div>
-                <div className="product-gender-type">For {product.gender}</div>
-                {/* <div className="product-colors">{product.color.length} {product.color.length > 1 ? 'Colors' : 'Color'}</div> */}
-                <div className="product-price">Rs.
-                    {product.sale
-                        ?
-                        <>
-                            <span className="hide">{product.price}</span>
-                            {Math.round(product.price * (1 - parseFloat(product.sale) / 100))}
-                        </>
-                        :
-                        <span>
-                            {product.price}
-                        </span>} /-
+                <div className="product-info">
+                    <div className="product-title">{product.name}</div>
+                    <div className="product-genre">{product.genre}</div>
+                    <div className="product-gender-type">For {product.gender}</div>
+                    {/* <div className="product-colors">{product.color.length} {product.color.length > 1 ? 'Colors' : 'Color'}</div> */}
+                    <div className="section-group">
+                        <div className="product-price">Rs.
+                            {product.sale
+                                ?
+                                <>
+                                    <span className="hide">{product.price}</span>
+                                    {Math.round(product.price * (1 - parseFloat(product.sale) / 100))}
+                                </>
+                                :
+                                <span>
+                                    {product.price}/-
+                                </span>}
+                        </div>
+
+                        <div className="btn-primary add-to-cart "
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }}
+                        >
+                            Add to Cart
+                        </div>
+                    </div>
                 </div>
 
             </div>
