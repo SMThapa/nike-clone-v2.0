@@ -232,13 +232,15 @@
             }
 
             .prod-size {
-                margin: 12px 0;
+                margin: 18px 0 12px;
+                font-size: .8rem;
             }
 
             .prod-size-guide {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 12px;
+                max-width: 75%;
+                gap: 8px;
                 margin-bottom: 25px;
 
                 input {
@@ -247,13 +249,15 @@
 
                 label {
                     display: inline-block;
-                    width: 70px;
-                    border: 1px solid black;
+                    width: 55px;
+                    border: 1px solid var(--secondary);
                     text-align: center;
-                    padding: 6px 0;
+                    padding: 4px 0;
                     border-radius: 8px;
                     cursor: pointer;
-                    font-size: .9rem;
+                    font-size: .8rem;
+                    font-weight: 500;
+                    background: var(--secondary);
                 }
             }
 

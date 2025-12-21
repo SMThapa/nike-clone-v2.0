@@ -113,6 +113,24 @@ nav {
                     font-size: .9rem;
                 }
             }
+
+            .wishlist,
+            .cart {
+                position: relative;
+
+                span {
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background: red;
+                    color: white;
+                    font-size: .75rem;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    text-align: center;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,106 @@
+.wishlist-page,
+.cart-page {
+    margin: 80px auto;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 1fr .6fr;
+    gap: 50px;
+
+
+
+    .product-card {
+        img {
+            height: 220px;
+            width: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        border-bottom: 2px solid rgb(238, 238, 238);
+        padding-bottom: 25px;
+        margin: 25px 0;
+
+        .left {
+            display: flex;
+            gap: 25px;
+
+            .prod-name {
+                font-family: var(--bold);
+                text-transform: uppercase;
+                font-size: 1.4rem;
+                font-weight: 600;
+                margin-top: 12px;
+            }
+
+            p {
+                margin: 12px 0;
+
+                span {
+                    font-size: .8rem;
+                    opacity: .6;
+                    font-weight: 500;
+                }
+            }
+
+            .btn-primary {
+                color: white;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: .7rem;
+
+                svg {
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+        }
+    }
+
+    .summary {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .total-info,
+        .prod-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .total {
+            border-top: 2px solid rgb(238, 238, 238);
+            margin: 25px 0;
+            padding-top: 25px;
+        }
+
+        .btn-primary {
+            margin-top: 45px;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+        }
+    }
+}
+
+.wishlist-page {
+    grid-template-columns: 1fr;
+
+    .cart-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+        }
+    }
+}

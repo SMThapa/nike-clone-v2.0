@@ -1,22 +1,49 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import data from '../../../data/data.json';
 import { useEffect, useState } from 'react';
-import { ProductSlider } from '../../components/SingleProduct/ProductSlider'
+import { ProductSlider } from '../../components/SingleProduct/ProductSlider';
+import useCartStore from '../../zustand/useCartStore';
+import useWishStore from "../../zustand/useWishStore";
 
 export const ProductSingle = () => {
 
-    const size = {
+    const ShoeSize = {
         Kid: ["UK 1", "UK 2", "UK 3", "UK 4", "UK 5", "UK 6"],
         Women: ["UK 3", "UK 4", "UK 5", "UK 6", "UK 6.5", "UK 7", "UK 7.5", "UK 8", "UK 8.5"],
         Men: ["UK 6", "UK 6.5", "UK 7", "UK 7.5", "UK 8", "UK 8.5", "UK 9", "UK 9.5", "UK 10", "UK 10.5", "UK 11", "UK 11.5", "UK 12"]
     }
 
     const { pid } = useParams();
-
+    const [inCart, setInCart] = useState(false);
+    const cartItems = useCartStore(state => state.items)
     const [prod, setProd] = useState({})
+    const [size, setSize] = useState(null);
+
+    const isWishlisted = useWishStore(state => state.isWishlisted(pid));
+
+    const addToWish = useWishStore(state => state.toggleWishlist);
+    const addToCart = useCartStore(state => state.addToCart);
+    const handleAddToCart = () => {
+        addToCart({
+            product: prod,
+            size: size,
+            color: prod.color[0],
+            quantity: 1
+        })
+        setInCart(true)
+    }
+    const handleAddWish = () => {
+        addToWish(prod)
+    }
+
     useEffect(() => {
-        setProd(data.products.find(obj => obj.id == pid))
+        const product = data.products.find(obj => obj.id == pid)
+        setSize(ShoeSize[product.gender][0])
+        setProd(product)
+
+        setInCart(cartItems.find(obj => obj.id == product.id) ? true : false)
     }, [pid])
+
 
     return (
         <div className="product-single">
@@ -29,12 +56,12 @@ export const ProductSingle = () => {
                     <p className="prod-genre">{prod.genre}</p>
                     <p className="prod-price">MRP: &#8377;{prod.price}/-</p>
 
-                    <p className='prod-size'>Size Guide:</p>
+                    <p className='prod-size'>Select Size:</p>
                     <div className="prod-size-guide">
                         {
-                            size[prod.gender]?.map((item, index) => (
+                            ShoeSize[prod.gender]?.map((item, index) => (
                                 <div className="radio-group" key={index}>
-                                    <input type="radio" id={item} name='size' defaultChecked={index === 0} />
+                                    <input type="radio" id={item} name='size' defaultChecked={index === 0} onChange={(e) => console.log(e.target.value)} />
                                     <label htmlFor={item}>{item}</label>
                                 </div>
                             ))
@@ -42,8 +69,17 @@ export const ProductSingle = () => {
                     </div>
 
                     <div className="button-group">
-                        <div className="prod-btn buy">Buy Now</div>
-                        <div className="prod-btn cart">Add to Cart</div>
+                        {
+                            inCart ?
+                                <Link to={'/cart'} className="prod-btn buy">Check Cart</Link> :
+                                <div className="prod-btn buy" onClick={handleAddToCart}>Add to Cart</div>
+                        }
+                        {
+                            isWishlisted ?
+                                <div className="prod-btn cart" onClick={handleAddWish}>Remove from Wishlist</div> :
+                                <div className="prod-btn cart" onClick={handleAddWish}>Add to Wishlist</div>
+
+                        }
                     </div>
 
                     <p className="prod-info">Net Quantity: <strong>1 Pair</strong></p>
