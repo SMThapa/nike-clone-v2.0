@@ -179,6 +179,7 @@ a {
 }
 
 .btn-primary {
+    border: none;
     background-color: var(--black);
     width: fit-content;
     padding: 8px 18px;
@@ -188,6 +189,13 @@ a {
     letter-spacing: .5px;
     font-weight: 400;
     cursor: pointer;
+    color: white;
+    outline: none;
+
+    svg {
+        height: 16px;
+        margin-right: 8px;
+    }
 }
 
 .button {
@@ -223,6 +231,10 @@ a {
 }
 
 form {
+    .no-display {
+        display: none;
+    }
+
     .form-group {
         position: relative;
         margin: 25px 0;
@@ -230,9 +242,6 @@ form {
         label {
             display: block;
             font-size: .8rem;
-            position: absolute;
-            top: 50%;
-            left: 8px;
             transform: translateY(-50%);
             color: rgb(107 113 127);
         }
@@ -246,6 +255,165 @@ form {
             border: 1px solid rgb(196, 196, 196);
             background: var(--secondary);
             border-radius: 4px;
+
+            &.error {
+                border-color: crimson;
+            }
+        }
+
+        .view-password {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            transform: translateY(-50%);
+            cursor: pointer;
+
+            height: 16px;
+
+            svg {
+                height: 16px;
+                vertical-align: top;
+                opacity: .6;
+            }
+        }
+
+        .error-msg {
+            position: absolute;
+            right: 0;
+            bottom: -18px;
+
+            font-size: .7rem;
+            color: crimson;
         }
     }
+
+    .form-divide {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin: 25px 0;
+
+        .form-group {
+            margin: 0;
+        }
+    }
+}
+
+.thankYou {
+    .delivery-image {
+        height: fit-content;
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        img {
+            object-fit: contain;
+        }
+
+        .title {
+            color: green;
+            font-weight: 500;
+            font-size: 2rem;
+        }
+    }
+
+    .order-info {
+        max-width: 1200px;
+        width: 100%;
+        margin: 25px auto;
+        border: 1px solid rgb(206, 206, 206);
+        padding: 25px 8%;
+        border-radius: 8px;
+
+        .orderId {
+            margin-bottom: 25px;
+        }
+    }
+
+    span {
+        font-size: .8rem;
+        font-weight: 600;
+        opacity: .6;
+    }
+
+    .order-card {
+        display: grid;
+        grid-template-columns: 200px 1fr 100px;
+        gap: 25px;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid rgb(209, 209, 209);
+
+        img {
+            height: 150px;
+            width: 200px;
+            object-fit: cover;
+        }
+
+        .delivery {
+            color: green;
+            font-size: .8rem;
+        }
+    }
+
+    .order-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr .5fr;
+
+        margin-top: 55px;
+        margin-bottom: 25px;
+
+        .info {
+            font-size: .9rem;
+            text-transform: capitalize;
+
+            .email {
+                text-transform: lowercase;
+            }
+
+            .heading {
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+        }
+
+        p {
+            svg {
+                height: 20px;
+                margin-right: 6px;
+            }
+        }
+    }
+}
+
+.shipment-indication {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        border: 1px solid gray;
+        padding: 6px 12px;
+        border-radius: 8px;
+        position: relative;
+        background: white;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            height: 1px;
+            transform: translateY(-50%);
+            width: 100%;
+            background: black;
+        }
+
+        &:nth-of-type(4) {
+            &::after {
+                content: none;
+            }
+        }
+    }
+
 }

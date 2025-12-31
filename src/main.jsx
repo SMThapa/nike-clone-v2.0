@@ -10,8 +10,8 @@ createRoot(document.getElementById('root')).render(
     <Router>
       <App />
       <ToastContainer
-        position="top-right"
-        autoClose={2000}
+        position="top-center"
+        autoClose={3500}
         hideProgressBar={false}
         newestOnTop
         closeOnClick

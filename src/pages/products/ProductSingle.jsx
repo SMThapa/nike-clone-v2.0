@@ -61,7 +61,7 @@ export const ProductSingle = () => {
                         {
                             ShoeSize[prod.gender]?.map((item, index) => (
                                 <div className="radio-group" key={index}>
-                                    <input type="radio" id={item} name='size' defaultChecked={index === 0} onChange={(e) => console.log(e.target.value)} />
+                                    <input type="radio" id={item} name='size' defaultChecked={index === 0} onChange={(e) => setSize(e.target.id)} />
                                     <label htmlFor={item}>{item}</label>
                                 </div>
                             ))

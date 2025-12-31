@@ -30,21 +30,28 @@ nav {
             font-weight: 500;
 
             a {
-                opacity: .9;
+                opacity: .8;
                 padding: 0 12px;
-            }
-
-            span {
-                display: inline-block;
-                height: 12px;
-                width: 1.3px;
-                background: black;
-                vertical-align: sub;
-                opacity: .6;
             }
 
             margin-right: 30px;
         }
+
+        .user-info {
+            font-size: .75rem;
+            font-weight: 500;
+
+            a {
+                opacity: .8;
+                padding: 0 4px 0 0px;
+            }
+
+            svg {
+                height: 16px;
+            }
+        }
+
+
 
         &.hidden {
             opacity: 0;

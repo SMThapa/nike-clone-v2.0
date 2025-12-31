@@ -61,3 +61,227 @@
         letter-spacing: .5px;
     }
 }
+
+.user-account {
+    padding: 30px 20px;
+
+    .section-title {
+        font-size: 2rem;
+        text-transform: lowercase;
+    }
+
+    .top-section {
+        margin-bottom: 55px;
+
+        p {
+            font-family: var(--bold);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+    }
+
+    .main-content {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 80px;
+
+        .left {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+
+            .options {
+                button {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    border: 1px solid black;
+                    border-radius: 12px;
+                    outline: none;
+
+                    padding: 8px 12px;
+                    text-align: start;
+                    font-weight: 500;
+
+                    text-transform: capitalize;
+                    margin-bottom: 6px;
+                    cursor: pointer;
+
+                    background: transparent;
+                    opacity: .5;
+
+                    svg {
+                        // border: 1px solid black;
+                        padding: 8px;
+                        height: 35px;
+                        width: 35px;
+                        border-radius: 6px;
+                        margin-right: 8px;
+                    }
+
+                    .arrow {
+                        display: none;
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        svg {
+                            border: none;
+                            padding: 0;
+                            height: 25px;
+                        }
+                    }
+
+                    &.logout,
+                    &.active {
+                        opacity: 1;
+
+                        .arrow {
+                            display: initial;
+                        }
+                    }
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+
+                hr {
+                    margin: 25px 0;
+                }
+            }
+        }
+
+        .right {
+            .contents {
+                // border: 1px solid rgb(200, 200, 200);
+                // border-radius: 12px;                
+
+                .item {
+                    display: none;
+
+                    .title {
+                        font-family: var(--bold);
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        font-size: 2rem;
+                    }
+
+                    &.active {
+                        display: initial;
+                    }
+                }
+
+                .user-address {
+                    .address {
+                        display: flex;
+                        gap: 25px;
+                        flex-wrap: wrap;
+                        margin: 15px 0 25px;
+
+                        .address-card {
+                            max-width: 300px;
+                            width: 100%;
+                            border: 1px solid rgb(219, 219, 219);
+                            padding: 12px;
+                            border-radius: 12px;
+
+                            h2 {
+                                font-weight: 500;
+                                font-size: 1.2rem;
+                                text-transform: capitalize;
+                                margin-bottom: 5px;
+                            }
+
+                            p {
+                                font-size: .9rem;
+                                opacity: .8;
+                                text-transform: capitalize;
+                                margin-bottom: 1px;
+                            }
+
+                            button {
+                                font-size: .7rem;
+                                margin: 8px 8px 8px 0px;
+                            }
+                        }
+                    }
+                }
+
+                .my-order {
+
+                    .order-product {
+
+                        display: grid;
+                        grid-template-columns: 100px 180px 1fr 1fr;
+                        gap: 25px;
+                        // align-items: center;
+                        padding: 15px 0;
+                        border-bottom: 1px solid rgb(206, 206, 206);
+
+                        img {
+                            height: 120px;
+                            width: 100px;
+                            object-fit: cover;
+                        }
+
+                        .name {
+                            font-family: var(--bold);
+                            font-weight: 600;
+                            font-size: 1.2rem;
+                            margin-bottom: 8px;
+                        }
+
+                        p {
+                            font-size: .8rem;
+                            text-transform: capitalize;
+
+                            span {
+                                font-weight: 500;
+                                opacity: .6;
+                                margin-right: 4px;
+                                font-size: .7rem;
+                            }
+                        }
+
+                        .last {
+
+                            width: 100%;
+                            // text-align: right;
+
+                            .orderId {
+                                margin-bottom: 8px;
+                            }
+
+                            .email {
+                                text-transform: lowercase;
+                            }
+
+                            .address {
+                                opacity: .7;
+                                margin-bottom: 15px;
+
+                                p {
+                                    font-size: .7rem;
+                                }
+                            }
+                        }
+
+                        .actions {
+                            p {
+                                margin-bottom: 25px;
+                            }
+
+                            .btn-primary {
+                                font-size: .7rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

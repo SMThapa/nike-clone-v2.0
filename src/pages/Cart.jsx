@@ -1,7 +1,9 @@
 import useCartStore from "../zustand/useCartStore";
 import { Trash2 } from "lucide-react";
 import { useTitle } from "../hooks/useTitle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useUserStore from "../zustand/useUserStore";
+import { toast } from "react-toastify";
 
 export const Cart = () => {
 
@@ -12,11 +14,19 @@ export const Cart = () => {
     const totalProd = useCartStore(state => state.totalItems());
     const totalPrice = useCartStore(state => state.totalPrice());
 
+    const isLoggedIn = useUserStore(state => state.isLoggedIn)
+
     const handleRemove = (key) => {
         removeItem(key)
     }
 
-    console.log(items)
+    const navigate = useNavigate();
+    const handleCheckout = () => {
+        if (!isLoggedIn) {
+            return toast.error('Login first.')
+        }
+        navigate('/checkout')
+    }
 
     return (
         <>
@@ -71,7 +81,7 @@ export const Cart = () => {
                                 </div>
                             </div>
 
-                            <div className="btn-primary">
+                            <div className="btn-primary" onClick={handleCheckout}>
                                 Checkout
                             </div>
                         </div>

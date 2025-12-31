@@ -1,0 +1,127 @@
+.checkout {
+    form {
+        display: grid;
+        grid-template-columns: 1fr .9fr;
+        gap: 100px;
+
+        padding: 20px 25px;
+    }
+
+    .left,
+    .right {
+        .title {
+            font-size: 1.3rem;
+            font-family: var(--bold);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .payment-method {
+            margin: 50px 0;
+
+            .payment-option {
+                margin-top: 20px;
+                max-width: 200px;
+                width: 100%;
+
+                label {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: 2px solid rgb(196, 196, 196);
+                    padding: 12px 8px;
+                    border-radius: 8px;
+                    font-size: .9rem;
+                    color: rgb(161, 161, 161);
+                    margin: 12px 0;
+
+                    input,
+                    label {
+                        display: inline-block !important;
+                        width: fit-content !important;
+                        margin: 0;
+                        padding: 0;
+                        transform: translateY(0);
+                    }
+                }
+
+                & label:has(input[type="radio"]:checked) {
+                    border-color: #000;
+                    color: #000;
+                }
+            }
+
+
+            .payment-method-card {
+                max-width: 500px;
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 25px;
+
+                #cardHolder {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .right {
+        position: sticky;
+        top: 80px;
+        height: fit-content;
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .prod-card {
+            display: grid;
+            grid-template-columns: 90px 1fr 50px;
+            gap: 25px;
+            margin-bottom: 12px;
+
+            img {
+                height: 80px;
+                object-fit: cover;
+                border-radius: 6px;
+                overflow: hidden;
+            }
+
+            .mid,
+            .right {
+                padding: 12px 0;
+
+                p:nth-of-type(2) {
+                    opacity: .6;
+                    font-size: .9rem;
+                    margin-top: 8px;
+                }
+            }
+        }
+
+        .btn-primary {
+            width: 300px;
+            outline: none;
+            color: white;
+            margin: 0 auto;
+            font-family: var(--bold);
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+
+            padding: 12px;
+            margin: 25px 0;
+        }
+
+        hr {
+            margin: 25px 0;
+            background: var(--secondary);
+        }
+
+        .group {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
