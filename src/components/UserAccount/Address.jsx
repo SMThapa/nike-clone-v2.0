@@ -10,18 +10,14 @@ export const Address = () => {
     const user = useUserStore(state => state.user);
     const addAddress = useUserStore(state => state.addAddress);
 
-    console.log(user)
-
     const url = import.meta.env.VITE_BASE_URL
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const payload = Object.fromEntries(formData.entries());
-        console.log(payload);
 
         axios.post(`${url}/users/user-details`, payload)
             .then(res => {
-                // console.log(res)
                 toast.success('New Address Added.')
             }).catch(err => {
                 // toast.error('New Address Added.')

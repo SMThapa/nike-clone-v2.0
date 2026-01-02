@@ -1,6 +1,8 @@
 import { Phone } from "lucide-react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import useCartStore from "./useCartStore";
+import useWishStore from "./useWishStore";
 
 const initialUser = {
     email: "",
@@ -24,11 +26,14 @@ const useUserStore = create(
                 })),
 
             // logout
-            logout: () =>
+            logout: () => {
+                useCartStore.getState().clearCart();
+                useWishStore.getState().clearWishlist();
                 set({
                     user: initialUser,
                     isLoggedIn: false,
-                }),
+                })
+            },
 
             // update fields
             setEmail: (email) =>

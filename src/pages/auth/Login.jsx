@@ -24,12 +24,9 @@ export const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = (email, password) => {
-        console.log(email, password)
         axios.post(`${url}/users/login`, {
             email, password
         }).then(res => {
-            // console.log(res.data.user)
-
             registerUser({
                 ...res.data.user
             })
@@ -41,6 +38,7 @@ export const Login = () => {
                 ...prev,
                 ...err.response.data
             }))
+            toast.error(err.response.data.message)
         })
     }
 
