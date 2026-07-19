@@ -2,15 +2,17 @@ import axios from "axios"
 import { toast } from "react-toastify";
 import useUserStore from "../../zustand/useUserStore";
 
+
 import { SquarePen, Trash2 } from "lucide-react";
-import { span } from "framer-motion/client";
 
 export const Address = () => {
 
     const user = useUserStore(state => state.user);
+    const userEmail = useUserStore(state => state.user.email);
+    const deleteAddress = useUserStore(state => state.deleteAddress);
     const addAddress = useUserStore(state => state.addAddress);
+    const url = import.meta.env.VITE_BASE_URL;
 
-    const url = import.meta.env.VITE_BASE_URL
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -18,13 +20,32 @@ export const Address = () => {
 
         axios.post(`${url}/users/user-details`, payload)
             .then(res => {
-                toast.success('New Address Added.')
-            }).catch(err => {
-                // toast.error('New Address Added.')
-                console.log(err)
+                addAddress(res.data.addressAdded); // update local store with the new address
+                toast.success(res.data.message || 'New address added.');
+                e.target.reset(); // clear the form
             })
+            .catch(err => {
+                console.log(err);
+                toast.error(err.response?.data?.message || 'Failed to add address.');
+            });
     };
 
+
+    const handleDeleteAddress = (addressId) => {
+        axios.delete(`${url}/users/address/${addressId}`, {
+            data: { email:userEmail } // axios requires body via `data` key for DELETE requests
+        })
+        .then(res => {
+            toast.success(res.data.message);
+            deleteAddress(addressId);            
+        })
+        .catch(err => {
+            console.error(err);
+            toast.error(err.response?.data?.message || "Failed to delete address");
+        });        
+    };    
+
+    console.log(user)
 
     return (
         <div className="user-address">
@@ -42,14 +63,11 @@ export const Address = () => {
                             <p>{info.addressLine}</p>
                             <p>{info.pincode}</p>
                             <p>{info.state}</p>
-                            <p>{user.email}</p>
-                            <p>{user.phone}</p>
-                            <button className="btn-primary">
-                                <SquarePen />Edit
-                            </button>
-                            <button className="btn-primary">
-                                <Trash2 />Remove
-                            </button>
+                            <p className="no-capital">{user.email}</p>
+                            <p>{user.phone}</p>                            
+                            <button className="btn-primary" onClick={()=> handleDeleteAddress(info._id)}>
+                                <Trash2 />Remove Address
+                            </button>                            
                         </div>
                     ))
                 }

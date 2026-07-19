@@ -61,6 +61,13 @@ const useUserStore = create(
                         orderInfo: [...state.user.orderInfo, order],
                     },
                 })),
+            deleteAddress: (addressId) =>
+                set((state) => ({
+                    user: {
+                        ...state.user,
+                        address: state.user.address.filter(addr => addr._id !== addressId),
+                    },
+    })),
         }),
         {
             name: "user-store", // ✅ REQUIRED (localStorage key)
