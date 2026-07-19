@@ -45,8 +45,6 @@ export const Address = () => {
         });        
     };    
 
-    console.log(user)
-
     return (
         <div className="user-address">
 

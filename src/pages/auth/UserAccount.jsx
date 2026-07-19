@@ -60,7 +60,7 @@ export const UserAccount = () => {
                             <MyOrders />
                         </div>
                         <div className={`item address ${activeSection == 'address' ? 'active' : ''}`}>
-                            <div className="title">My Address</div>
+                            {user.Address && <div className="title">My Address</div>}
                             <Address />
                         </div>
                         <div className={`item security ${activeSection == 'security' ? 'active' : ''}`}>

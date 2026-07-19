@@ -1,6 +1,8 @@
 import axios from "axios"
 import useUserStore from "../../zustand/useUserStore";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 export const MyOrders = () => {
 
     const user = useUserStore(state => state.user);
@@ -9,23 +11,23 @@ export const MyOrders = () => {
     const [orders, setOrders] = useState(null)
 
     useEffect(() => {
-        axios.get(`${url}/orders`, { params: { userId: user.userId } }).then((res) => {
-            console.log(res.data)
+        axios.get(`${url}/orders`, { params: { userId: user.userId } }).then((res) => {            
             setOrders(res.data)
         }).catch((err) => {
             console.log(err)
         })
 
-    }, [])
+    }, [url, user.userId])            
 
     return (
         <div className="my-order">
             <div className="title">My Orders</div>
 
-
+        {
+            orders && orders.orders && orders.orders.length > 0 ?
             <div className="orders-list">
                 {
-                    orders?.orders.map((ord, index) => (
+                    orders.orders.map((ord, index) => (
                         <div className="order" key={index}>
                             {
                                 ord.items.map((prod) => (
@@ -57,7 +59,9 @@ export const MyOrders = () => {
                         </div>
                     ))
                 }
-            </div>
+            </div> :
+            <p className="empty-order"> Start Shopping <Link to={'/products'} state={{ title: "New & Featured" }}><button className="btn-primary">shop</button></Link></p>
+        }         
         </div>
     )
 }
