@@ -1,10 +1,10 @@
-nav {
+nav {    
     position: sticky;
     top: 0;
     background: white;
     z-index: 12;
     height: fit-content;    
-
+    overflow-x: clip;
     .nav-top {
         position: fixed;
         top: 0;
@@ -182,7 +182,7 @@ nav {
         height: calc(100dvh);
         width: 100%;
         background: white;
-        z-index: 99;
+        z-index: 99;        
         
         &.closed{
             right: -100%;

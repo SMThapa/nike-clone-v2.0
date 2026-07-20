@@ -73,7 +73,7 @@ export const Header = () => {
             </div>
             <div className={`hamburger_menu ${open ? 'opened' : 'closed'}`}>
                 <div className="menu-list">
-                    <Link to={'/'}>Home</Link>
+                    <Link to={'/'} onClick={() => setOpen(false)}>Home</Link>
                     <Link to={'/products'} state={{ title: "New & Featured" }} onClick={() => setOpen(false)}>New & Featured</Link>
                     <Link to={'/products'} state={{ title: "Men" }} onClick={() => setOpen(false)}>Men</Link>
                     <Link to={'/products'} state={{ title: "Women" }} onClick={() => setOpen(false)}>Women</Link>

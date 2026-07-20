@@ -29,9 +29,7 @@
 html,
 body {
     scroll-behavior: smooth;    
-}
-body{
-    overflow-x: hidden;
+    // overflow-x: hidden;
 }
 img,
 video {
@@ -443,3 +441,7 @@ form {
         
     }
 }
+
+// body{
+//     overflow-x: hidden;
+// }
