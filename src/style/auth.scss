@@ -301,7 +301,10 @@
                     flex-wrap: wrap;
                     gap: 5px;
                     button{
-                        width: 250px;
+                        width: auto;
+                    }
+                    .active .arrow{
+                        display: none !important;
                     }
                 }
             }
