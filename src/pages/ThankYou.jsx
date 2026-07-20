@@ -24,12 +24,12 @@ export const ThankYou = () => {
             <div className="order-info">
                 <p className='orderId'><span>Order Id: </span>{data.orderId}</p>
 
-                <div className="shipment-indication">
+                {/* <div className="shipment-indication">
                     <span>Orderd</span>
                     <span>Processing</span>
                     <span>Shipped</span>
                     <span>Delivered</span>
-                </div>
+                </div> */}
 
                 <div className="order-details">
                     <div className="info">
