@@ -115,5 +115,19 @@
             display: flex;
             gap: 12px;
         }
-    }    
+    }   
+    
+    @media (max-width: 1000px){
+        .cart-list{
+            grid-template-columns: 1fr;
+            .product-card{
+                .info .prod-name{
+                    margin: 0;
+                }
+                .btn-group{
+                    display: grid;
+                }
+            }
+        }
+    }
 }
