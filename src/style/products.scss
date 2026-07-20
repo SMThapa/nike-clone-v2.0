@@ -169,7 +169,7 @@
         .product-group{
             grid-template-columns: repeat(2, 1fr);
             .product-image{
-               height: 300px; 
+               height: 200px; 
             }
         }
     }
@@ -301,6 +301,14 @@
                     }
                 }
             }
+        }
+    }
+
+
+    @media (max-width: 1000px){
+        .main-product{
+            grid-template-columns: 1fr;
+            gap: 50px;
         }
     }
 }
