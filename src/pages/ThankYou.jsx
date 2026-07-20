@@ -1,8 +1,7 @@
-import { useLocation } from 'react-router-dom';
 import img from '../assets/images/5227.jpg';
 import { Truck } from 'lucide-react';
 import { Button } from '../components/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const ThankYou = () => {
 

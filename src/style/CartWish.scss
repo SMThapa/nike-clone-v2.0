@@ -90,6 +90,15 @@
 
     @media (max-width: 1000px){
         grid-template-columns: 1fr;
+
+        .product-card{
+        img {
+            height: 150px !important;
+            width: 150px !important;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+    }
     }
 }
 
@@ -106,5 +115,5 @@
             display: flex;
             gap: 12px;
         }
-    }
+    }    
 }
