@@ -29,6 +29,7 @@
 html,
 body {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 img,
@@ -111,7 +112,7 @@ a {
             background: var(--secondary);
             position: absolute;
             right: 10px;
-            z-index: 10;
+            z-index: 4;
             padding: 12px;
             border-radius: 50%;
 
@@ -425,4 +426,19 @@ form {
 .empty-order{
     margin: 105px 0;
     text-align: center;
+}
+
+@media (max-width:700px){
+    main {
+        height: 100%;
+
+        &>div {
+            padding-top: 70px;
+
+            &:nth-of-type(1) {
+                padding-top: 0;
+            }
+        }
+        
+    }
 }

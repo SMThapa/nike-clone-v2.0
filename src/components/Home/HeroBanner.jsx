@@ -53,7 +53,7 @@ export const HeroBanner = () => {
                                 isActive={activeSlide === index}
                                 mute={mute}
                                 onComplete={() => swiperRef.current?.slideNext()}
-                            />
+                            />                        
                         </SwiperSlide>
                     ))
                 }
@@ -70,7 +70,7 @@ export const HeroBanner = () => {
                         key={index}
                         className={activeSlide === index ? "dot active" : "dot"}
                         onClick={() => swiperRef.current?.slideToLoop(index)}
-                    ><span>{"0" + (index + 1)}</span> <br /><p>{item.title}</p></div>
+                    ><span>{"0" + (index + 1)}</span> <br /><p className='video-title'>{item.title}</p></div>
                 ))}
             </div>
 

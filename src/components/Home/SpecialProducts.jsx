@@ -22,8 +22,22 @@ export const SpecialProducts = () => {
                 onSwiper={(swiper) => (swiperRef2.current = swiper)}
                 loop={true}
                 onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-                slidesPerView={4}
+                // slidesPerView={4}
                 spaceBetween={20}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        480: {
+                            slidesPerView: 2,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                        },
+                    }}
                 className="mySwiper"
             >
                 {

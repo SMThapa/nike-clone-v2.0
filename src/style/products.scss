@@ -99,7 +99,7 @@
         height: 60px;
         background: white;
         width: 100%;
-        z-index: 15;
+        z-index: 5;
 
         display: flex;
         align-items: center;
@@ -156,10 +156,22 @@
 
     .product-group {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
 
         align-items: center;
+    }
+
+    @media (max-width:700px){
+        .options{
+            padding: 0;
+        }
+        .product-group{
+            grid-template-columns: repeat(2, 1fr);
+            .product-image{
+               height: 300px; 
+            }
+        }
     }
 }
 

@@ -1,13 +1,31 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 import NavTop from './NavTop';
 import useCartStore from '../zustand/useCartStore';
 import useWishStore from '../zustand/useWishStore';
+import { useEffect, useState } from 'react';
 
 export const Header = () => {
 
     const cartItems = useCartStore(state => state.items)
     const wishItems = useWishStore(state => state.totalWishlistItems())
+
+    const [open, setOpen] = useState(false)
+    const toggleOpen = (action) =>{
+
+        console.log(action)
+        if (action == open){
+            setOpen(!open)
+        }else{
+            setOpen(action)
+        }
+    }
+
+    const { pathname } = useLocation();
+    useEffect(function () {
+        setOpen(false);
+    }, [pathname])
+
 
     return (
         <nav>
@@ -43,6 +61,23 @@ export const Header = () => {
                                 <span>{cartItems.length}</span> : ''
                         }
                     </Link>
+                    <div className="hamburger" onClick={() => toggleOpen(!open)}>
+                        {
+                            open ?
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> :
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>                        
+                        }                        
+                    </div>
+
+                </div>
+            </div>
+            <div className={`hamburger_menu ${open ? 'opened' : 'closed'}`}>
+                <div className="menu-list">
+                    <Link to={'/'}>Home</Link>
+                    <Link to={'/products'} state={{ title: "New & Featured" }} onClick={() => setOpen(false)}>New & Featured</Link>
+                    <Link to={'/products'} state={{ title: "Men" }} onClick={() => setOpen(false)}>Men</Link>
+                    <Link to={'/products'} state={{ title: "Women" }} onClick={() => setOpen(false)}>Women</Link>
+                    <Link to={'/products'} state={{ title: "Sale" }} onClick={() => setOpen(false)}>Sale</Link>
                 </div>
             </div>
         </nav>

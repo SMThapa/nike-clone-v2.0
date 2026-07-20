@@ -25,7 +25,7 @@ footer {
                 opacity: .6;
                 margin-bottom: 12px;
             }
-        }
+        }        
     }
 
     .footer-bottom {
@@ -36,4 +36,12 @@ footer {
             height: 10px;
         }
     }
+
+    @media (max-width:700px){
+        padding-top: 80px;
+        .footer{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
 }
