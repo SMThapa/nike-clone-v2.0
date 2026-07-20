@@ -204,6 +204,10 @@ nav {
                 margin-bottom: 12px;
             }            
         }
+
+        @media (min-width:1200px){
+            display: none;
+        }
     }
 }
 
