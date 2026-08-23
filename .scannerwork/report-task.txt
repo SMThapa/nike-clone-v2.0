@@ -1,0 +1,6 @@
+projectKey=vulnerable-react-app
+serverUrl=http://localhost:9000
+serverVersion=26.8.0.126808
+dashboardUrl=http://localhost:9000/dashboard?id=vulnerable-react-app
+ceTaskId=a4e6c1d3-16b3-4a66-bc45-888edbf65c3a
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a4e6c1d3-16b3-4a66-bc45-888edbf65c3a
